@@ -63,6 +63,7 @@ jobs:
         $XVFB bash run-tests.sh
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
+      if: runner.os == 'Windows'
       with:
           name: build-files
           path: |
