@@ -66,4 +66,4 @@ jobs:
       with:
           name: build-files
           path: |
-              bin
+              build/bin
