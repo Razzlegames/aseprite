@@ -67,4 +67,5 @@ jobs:
       with:
           name: build-files
           path: |
-              build/bin
+              build/bin/data
+              build/bin/aseprite.exe
