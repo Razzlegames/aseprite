@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [windows-latest]
         build_type: [debug]
         enable_ui: [off]
         include:
@@ -67,5 +67,5 @@ jobs:
       with:
           name: build-files
           path: |
-              build/bin/data
-              build/bin/aseprite.exe
+              build/bin/
+        
