@@ -6,13 +6,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [windows-latest]
         build_type: [debug]
-        enable_ui: [off]
-        include:
-          - os: ubuntu-latest
-            build_type: debug
-            enable_ui: on
+        enable_ui: [on]
+
     steps:
     - uses: actions/checkout@v2
       with:
@@ -66,3 +63,11 @@ jobs:
         git clone --branch $TESTS_BRANCH --recursive https://github.com/aseprite/tests.git
         cd tests
         $XVFB bash run-tests.sh
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      if: runner.os == 'Windows'
+      with:
+          name: build-files
+          path: |
+              build/bin/
+        
